@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+import os
+import sys
+
+if __name__ == "__main__":
+<<<<<<< HEAD
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PollSite_3.settings")
+=======
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PollSite_1.settings")
+>>>>>>> c319d192a75b394f13e2a200782b325825a9738e
+
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(sys.argv)
