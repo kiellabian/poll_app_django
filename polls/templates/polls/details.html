@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+
+<h1>{{poll.question}}</h1>
+
+{% if error_message %}
+	<p style="color:red">{{error_message}}</p>
+{% endif %}
+
+<form action="{% url 'polls:vote' poll.id %}" method="POST">
+{% csrf_token %}
+	{% for choice in poll.choice_set.all %}
+		<input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}" />
+		<label for="choice{{forloop.counter}}">{{choice.text}}</label>
+		</br>
+	{% endfor %}
+	<input type="submit" value="Vote!" />
+</form>
+
+<a href="{% url 'polls:index' %}">Home</a>
